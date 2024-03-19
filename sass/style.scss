@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap');
+
+
+body {
+    background-color: black;
+}
+
+* {
+    user-select: none;
+}
+
+#game {
+    width: 1000px;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+img,
+canvas {
+    image-rendering: pixelated;
+}
+
+#hud {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+
+    width: inherit;
+
+    #weapon {
+        height: 300px;
+        margin-left: 37%;
+        margin-bottom: -4px;
+    }
+
+    #bar {
+        height: 100px;
+        background-image: url("../images/perlinnoise.png");
+        background-size: 180px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 3px;
+
+        font-family: 'Press Start 2P';
+
+        >* {
+            height: 92%;
+        }
+
+        .stat-box {
+            margin: 4px;
+
+            box-shadow: 3px 3px rgba(0, 0, 0, 0.5), -3px -3px rgba(255, 255, 255, 0.5), 2px 0 rgba(72, 72, 72, 0.5), 0 2px rgba(176, 176, 176, 0.5);
+            background-color: rgba(110, 110, 110, 0.493);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            text-shadow: 3px 3px rgba(0, 0, 0, 0.651);
+
+            .value {
+                margin-left: auto;
+                //font-family: 'VT323';
+                font-weight: normal;
+                font-size: 40px;
+                -webkit-text-stroke: 3px rgb(146, 12, 12);
+                mix-blend-mode: overlay;
+                color: rgb(215, 18, 18);
+                text-shadow: 4px 2px rgba(0, 0, 0, 0.651), 2px 4px rgba(0, 0, 0, 0.651);
+            }
+
+            .name {
+                margin: 0 20px;
+                font-family: 'Press Start 2P';
+                font-weight: 600;
+                font-size: 16px;
+                letter-spacing: 2px;
+                text-align: center;
+                color: rgb(206, 206, 206);
+            }
+
+            #arms-grid {
+                display: grid;
+
+                margin: 0 10px;
+                height: 50%;
+
+                grid-template-rows: 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+
+                gap: 5px;
+
+                .arms-grid-item {
+                    border: 2px outset rgb(104, 104, 104);
+                    background-color: rgba(59, 59, 59, 0.331);
+
+                    color: rgb(177, 177, 177);
+                    text-shadow: 2px 2px rgba(109, 14, 14, 0.651);
+
+                    font-family: 'Silkscreen';
+                    font-weight: 500;
+                    font-size: 20px;
+                    text-align: center;
+                    line-height: .8;
+                }
+
+                #arms-selected {
+                    color: rgb(203, 193, 82);
+                }
+            }
+        }
+
+        #face {
+            width: 100px;
+            margin: 2px 0;
+            box-shadow: 2px 2px rgba(0, 0, 0, 0.5), -2px -2px rgba(255, 255, 255, 0.5), 1px 0 rgba(72, 72, 72, 0.5), 0 1px rgba(176, 176, 176, 0.5);
+
+            background-color: rgb(28, 28, 28);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            >img {
+                height: 90%;
+            }
+        }
+
+        #filler-bars {
+            width: 40px;
+            padding: 3px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            >* {
+                margin: 3px;
+                box-shadow: 2px 2px rgba(0, 0, 0, 0.5), -2px -2px rgba(255, 255, 255, 0.5), 1px 0 rgba(72, 72, 72, 0.5), 0 1px rgba(176, 176, 176, 0.5);
+                height: 30%;
+            }
+        }
+
+        #item-count-grid {
+            width: max-content;
+            padding: 10px;
+
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+
+            font-family: 'Silkscreen';
+            font-size: 20px;
+            line-height: .8;
+
+            .item-text {
+                color: rgb(218, 218, 218);
+                text-shadow: 2px 0 rgba(0, 0, 0, 0.651);
+            }
+
+            .item-count {
+                color: rgb(243, 225, 28);
+                text-shadow: 2px 2px rgba(109, 14, 14, 0.651);
+                text-align: right;
+            }
+        }
+    }
+}

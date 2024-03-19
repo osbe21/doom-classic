@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Doom</title>
+
+	<link rel="stylesheet" href="../styles/reset.css">
+	<link rel="stylesheet" href="../styles/style.min.css">
+	<script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@v0.158.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@v0.158.0/examples/jsm/"
+          }
+        }
+    </script>
+	<script src="../javascript/input.js"></script>
+	<script type="module" src="../javascript/game.js"></script>
+</head>
+
+<body>
+	<div id="game">
+		<div id="hud">
+			<img id="weapon" src="../images/shooting/pistolStatic.png" alt="weapon">
+			<div id="bar">
+				<div class="stat-box">
+					<div id="ammo-count" class="value">50</div>
+					<div class="name">AMMO</div>
+				</div>
+				<div class="stat-box">
+					<div class="value">100%</div>
+					<div class="name">HEALTH</div>
+				</div>
+				<div class="stat-box">
+					<div id="arms-grid">
+						<div id="arms-selected" class="arms-grid-item">1</div>
+						<div class="arms-grid-item">2</div>
+						<div class="arms-grid-item">3</div>
+						<div class="arms-grid-item">4</div>
+						<div class="arms-grid-item">5</div>
+						<div class="arms-grid-item">6</div>
+					</div>
+					<div class="name">ARMS</div>
+				</div>
+				<div id="face">
+					<img src="../images/doomguy_face_sprite.webp" alt="face">
+				</div>
+				<div id="filler-bars">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="stat-box">
+					<div class="value">0%</div>
+					<div class="name">ARMOR</div>
+				</div>
+				<div id="item-count-grid" class="stat-box">
+					<div class="item-text">BULL</div>
+					<div class="item-count">50</div>
+					<div class="item-text">/</div>
+					<div class="item-count">200</div>
+					<div class="item-text">SHEL</div>
+					<div class="item-count">0</div>
+					<div class="item-text">/</div>
+					<div class="item-count">50</div>
+					<div class="item-text">RCKT</div>
+					<div class="item-count">0</div>
+					<div class="item-text">/</div>
+					<div class="item-count">50</div>
+					<div class="item-text">CELL</div>
+					<div class="item-count">0</div>
+					<div class="item-text">/</div>
+					<div class="item-count">300</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	</div>
+
+</html>
