@@ -2,35 +2,6 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 
-// class Zombie extends THREE.Sprite {
-//     constructor(position=new THREE.Vector3(0,0,0)) {
-//         const texture = new THREE.TextureLoader().load("../images/Zombie_Man.webp");
-//         texture.minFilter = THREE.NearestFilter;
-//         texture.magFilter = THREE.NearestFilter;
-//         const mat = new THREE.SpriteMaterial({ map: texture });
-//         super(mat, {position: position});
-
-//         this.scale.x = 4;
-//         this.scale.y = 4;
-//     }
-
-//     Update(ctx) {
-//         const dist = this.position.distanceTo(ctx.camera.position);
-        
-//         if (dist > 8) {
-//             const speed = 2;
-//             const dir = new THREE.Vector3();
-//             dir.subVectors(ctx.camera.position, this.position);
-//             dir.normalize();
-//             this.translateOnAxis(dir, speed * ctx.frameDelta);
-//         } else {
-//             //shoot
-//         }
-//     }
-// }
-
-
-
 class Game extends THREE.Scene {
     renderer;
     clock;
@@ -90,7 +61,7 @@ class Game extends THREE.Scene {
         const sound = new THREE.Audio(this.audioListener);
 
         const audioLoader = new THREE.AudioLoader();
-        audioLoader.load('../audio/main_theme.mp3', function(buffer) {
+        audioLoader.load('/doom-classic/audio/main_theme.mp3', function(buffer) {
             sound.setBuffer( buffer );
             sound.setLoop( true );
             sound.setVolume( 0.5 );
@@ -100,7 +71,7 @@ class Game extends THREE.Scene {
 
         // Skybox
         const skyGeometry = new THREE.CylinderGeometry(1000, 1000, 1200, 16);
-        const texture = new THREE.TextureLoader().load("../images/sky.png");
+        const texture = new THREE.TextureLoader().load("/doom-classic/images/sky.png");
         texture.minFilter = THREE.NearestFilter;
         texture.magFilter = THREE.NearestFilter;
         const mat = new THREE.MeshBasicMaterial({map: texture, side: THREE.BackSide});
@@ -112,7 +83,7 @@ class Game extends THREE.Scene {
     async LoadMap() {
         const loader = new GLTFLoader();
 
-        const model = await loader.loadAsync('../models/map.glb');
+        const model = await loader.loadAsync('/doom-classic/models/map.glb');
 
         model.scene.traverse((obj) => {
             if (!(obj.material && obj.material.map)) return;
@@ -214,7 +185,7 @@ class Game extends THREE.Scene {
 
         const sound = new THREE.Audio(this.audioListener);
         const audioLoader = new THREE.AudioLoader();
-        audioLoader.load('../audio/shot.mp3', function( buffer ) {
+        audioLoader.load('/doom-classic/audio/shot.mp3', function( buffer ) {
             sound.setBuffer( buffer );
             sound.setVolume( 0.5 );
             sound.play();
@@ -223,10 +194,10 @@ class Game extends THREE.Scene {
         // Spill av animasjon
 
         const weapon = document.getElementById("weapon");
-        weapon.setAttribute("src", "../images/shooting/pistolShoot.gif");
+        weapon.setAttribute("src", "/doom-classic/images/shooting/pistolShoot.gif");
 
         setTimeout(() => {
-            weapon.setAttribute("src", "../images/shooting/pistolStatic.png");
+            weapon.setAttribute("src", "/doom-classic/images/shooting/pistolStatic.png");
             this.isShooting = false;
         }, 1350/3);
     }
